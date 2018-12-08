@@ -9,11 +9,12 @@ import (
 func main() {
 	frequency := 0
 
-	changesList := strings.Split(input, "\n")
+	changesList := strings.Split(INPUT, "\n")
 
 	for _, value := range changesList {
 		modifier, err := strconv.Atoi(value)
 		if err != nil {
+			fmt.Printf("Error converting str to int: %+v", err)
 			break
 		}
 		frequency += modifier
@@ -21,7 +22,7 @@ func main() {
 	fmt.Println(frequency)
 }
 
-const input = `-19
+const INPUT = `-19
 +8
 -10
 +9
