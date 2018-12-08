@@ -10,15 +10,28 @@ func main() {
 	frequency := 0
 
 	changesList := strings.Split(INPUT, "\n")
+	frequenciesSeen := make(map[int]bool)
+	finished := false
 
-	for _, value := range changesList {
-		modifier, err := strconv.Atoi(value)
-		if err != nil {
-			fmt.Printf("Error converting str to int: %+v", err)
-			break
+	for !finished {
+		for _, value := range changesList {
+			modifier, err := strconv.Atoi(value)
+			if err != nil {
+				fmt.Printf("Error converting str to int: %+v", err)
+				break
+			}
+			frequency += modifier
+
+			if _, ok := frequenciesSeen[frequency]; ok {
+				finished = true
+				break
+			} else {
+				frequenciesSeen[frequency] = true
+			}
+
 		}
-		frequency += modifier
 	}
+
 	fmt.Println(frequency)
 }
 
