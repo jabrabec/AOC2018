@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func main() {
+func findChecksum() {
 	boxIDsList := strings.Split(BOXIDS, "\n")
 
 	masterCount := map[int]int{2: 0, 3: 0}
@@ -42,6 +42,10 @@ func main() {
 		checkSum = checkSum * v
 	}
 	fmt.Println(checkSum)
+}
+
+func main() {
+	findChecksum()
 }
 
 const BOXIDS = `auxwcbzrmdvpsjfgkrthnkioqm
